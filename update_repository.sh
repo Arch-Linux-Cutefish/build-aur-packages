@@ -23,19 +23,20 @@ fi
 # add them to the local repository
 aur sync \
     --noconfirm --noview \
-    --database aurci2 --root /workspace \
+    --database cutefish-git --root /workspace \
     $packages_with_aur_dependencies
 
 # move the local repository to the workspace
 if [ -n "$GITHUB_WORKSPACE" ]
 then
-    rm /workspace/*.old
+    rm -f /workspace/*.old
     echo "Moving repository to github workspace"
     mv /workspace/* $GITHUB_WORKSPACE/
     # make sure that the .db/.files files are in place
     # Note: Symlinks fail to upload, so copy those files
     cd $GITHUB_WORKSPACE
-    rm aurci2.db aurci2.files
-    cp aurci2.db.tar.gz aurci2.db
-    cp aurci2.files.tar.gz aurci2.files
+    rm -f cutefish-git.db cutefish-gitfiles
+    cp -u cutefish-git.db.tar.gz cutefish-git.db
+    rm -f cutefish-git.files
+    cp -u cutefish-git.files.tar.gz cutefish-git.files
 fi

@@ -32,9 +32,9 @@ RUN \
     pacman -U --noconfirm aurutils-*.pkg.tar.zst && \
     mkdir /workspace && \
     cp /tmp/aurutils/aurutils-*.pkg.tar.zst /workspace/ && \
-    repo-add /workspace/aurci2.db.tar.gz /workspace/aurutils-*.pkg.tar.zst && \
+    repo-add /workspace/cutefish-git.db.tar.gz /workspace/aurutils-*.pkg.tar.zst && \
     echo "# local repository (required by aur tools to be set up)" >> /etc/pacman.conf && \
-    echo "[aurci2]" >> /etc/pacman.conf && \
+    echo "[cutefish-git]" >> /etc/pacman.conf && \
     echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf && \
     echo "Server = file:///workspace" >> /etc/pacman.conf
 
