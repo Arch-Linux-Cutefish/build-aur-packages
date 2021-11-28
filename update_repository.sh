@@ -26,6 +26,12 @@ aur sync \
     --database cutefish-git --root /workspace \
     $packages_with_aur_dependencies
 
+# add meta package for cutefish-git
+aur sync \
+    --noconfirm --noview \
+    --database cutefish-git --root /workspace \
+    cutefish-git
+
 # move the local repository to the workspace
 if [ -n "$GITHUB_WORKSPACE" ]
 then
